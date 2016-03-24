@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SPLOOSH</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+  <h1>BINARY BATTLER</h1>
+  <progress id="health" value="50" max="50"></progress>
+  <progress id="health" value="50" max="50"></progress>
+    <div class="container">
+      <div class="playerShips">
+        <div class="players" id="player1">O</div>
+        <div class="players" id="player2">O</div>
+      </div>
+    </div>
+  <div class="Manual">
+    <div id="player1Instructions">
+      <textarea rows="5" cols="25">
+        Player 1:
+        Q: UP
+        A: DOWN
+        C: CHANGE COLOR
+        X: SHOOT
+      </textarea>
+    </div>
+    <div id="player2Instructions">
+      <textarea rows="5" cols="25">
+        Player 2:
+        P: UP
+        L: DOWN
+        N: CHANGE COLOR
+        M: SHOOT
+      </textarea>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
