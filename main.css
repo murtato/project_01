@@ -17,8 +17,16 @@ h1 {
   background-color: #ffffcc;
 }
 
-.player {
+#player1Health[value]{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 125px;
+}
 
+#player2Health[value]{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 125px;
 }
 
 #player1 {
