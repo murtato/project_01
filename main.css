@@ -52,12 +52,10 @@ h3 {
 #player1Health[value]{
   float: left;
   width: 125px;
-  height: 5px;
 }
 #player2Health[value]{
   float: right;
   width: 125px;
-  height: 5px;
 }
 
 

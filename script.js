@@ -1,7 +1,3 @@
-$("button").click(function(event) {
-  var startGame = '<div class="startButton"' + '></div>';
-  /* Act on the event */
-});
 
 // var winner;
 
@@ -65,6 +61,7 @@ $(document).keypress(function(key){
     });
     var checker = setInterval(function() {
       if (collision(newBullet, player2)) {
+        subtractHealth();
         clearInterval(checker);
       }
     }
@@ -97,26 +94,22 @@ $(document).keypress(function(key){
        return false;
       }
        else {
-        console.log("hit")
+        console.log("hit");
+
          return true;
         }
       }
-
-function progressBarSim(pHB) {
-  var bar = document.getElementById('player1Health');
-  var status = document.getElementById('status');
-  // status.innerHTML = pHB+"%"
-  bar.value = pHB;
-  // pHB--;
-  var damage = setTimeout("progressBarSim("+pHB+")", 300);
-  if(pHB == 20){
-    // status.innerHTML = "20%";
-    bar.value = 20;
-    // clearTimeout(sim);
+    function subtractHealth() {
+      var bar = document.getElementById("player2Health").value;
+      console.log(bar);
+      console.log('hi');
+      bar -= 1;
+      document.getElementById("player2Health").value = bar;
+      console.log(bar);
+    }
   }
-}
-var p1HealthBar = 20;
-progressBarSim(p1HealthBar);
+// var p1HealthBar = 20;
+// progressBarSim(p1HealthBar);
 
 
 //player1 health bar
@@ -131,8 +124,8 @@ progressBarSim(p1HealthBar);
 // var damage = function(health){
 //   health.value =- 1};
 
-    }
-  });
+    })
+
 
 //player2 moves up
 $(document).keypress(function(key) {
@@ -183,6 +176,7 @@ $(document).keypress(function(key) {
     var checker = setInterval(function(){
       if (collision2(newBullet, player1)) {
         clearInterval(checker);
+        subtractHealth();
         }
       }, 200)
 //Collision detection here
@@ -218,23 +212,30 @@ $(document).keypress(function(key) {
          return true;
       }
     }
-
+    function subtractHealth() {
+      var bar = document.getElementById("player1Health").value;
+      console.log(bar);
+      console.log('hi');
+      bar -= 1;
+      document.getElementById("player1Health").value = bar;
+      console.log(bar);
+    }
+/*
 function progressBarSim(pHB) {
   var bar = document.getElementById('player1Health');
-  var status = document.getElementById('status');
+  // var status = document.getElementById('status');
   // status.innerHTML = pHB+"%"
   bar.value = pHB;
   // pHB--;
-  var damage = setTimeout("progressBarSim("+pHB+")", 300);
+  // var damage = ("progressBarSim("+pHB+")", 300);
   if(pHB == 20){
     // status.innerHTML = "20%";
     bar.value = 20;
     // clearTimeout(sim);
   }
-}
-var p1HealthBar = 20;
-progressBarSim(p1HealthBar);
+}*/
 
+var p1HealthBar = 20;
 
 //player1 health bar
 // var hitPoints;????
