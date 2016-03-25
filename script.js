@@ -5,8 +5,6 @@ $("button").click(function(event) {
 
 // var winner;
 // var hitPoints;
-// var health = document.getElementById("health")
-// health.value = health.value ()
 
 var player1 = $('#player1')
 player1.data('x', 0)
@@ -21,7 +19,8 @@ player2.data('w2', 40)
 player2.data('h2', 25)
 
 //player1 health bar
-
+// var health = document.getElementById("health")
+// health.value = health.value()
 
 //player1 moves up
 $(document).keypress(function(key) {
@@ -38,20 +37,21 @@ $(document).keypress(function(key) {
 //player1's color change function
 $(document).keypress(function(key) {
   if (key.which === 99) {
-    player1.toggleClass('blue');
+    player1.toggleClass('red blue');
+    console.log("toggle color");
   }
 });
 //player1's bullet animation
 //addclass, removeclass, toggleclass, hasclass
 //create div classes and manipulate their css properties for color change functions
-$(document).keypress(function(key) {
+$(document).keypress(function(key){
   if (key.which === 120) {
     var bulletDiv;
 
     if (player1.hasClass('blue')) {
       bulletDiv = '<div class="player1Bullets blue"' + '></div>';
     } else {
-      bulletDiv = '<div class="player1Bullets"' + '></div>';
+      bulletDiv = '<div class="player1Bullets red"' + '></div>';
     }
 
     var newBullet = $(bulletDiv);
@@ -66,8 +66,8 @@ $(document).keypress(function(key) {
       if (collision(newBullet, player2)) {
         clearInterval(checker);
       }
-      console.log("collision?", collision(newBullet, player2))
-    }, 200);
+    }
+    , 200);
 
     function collision(newBullet, enemyPlayer) {
       // var newBullet = $('<div class="player1Bullets"></div>')
@@ -84,23 +84,35 @@ $(document).keypress(function(key) {
       var b2 = y2 + h2;
       var r2 = x2 + w2;
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+        console.log("geometry")
         return false;
-      } else {
-        return true;
+        } else if ($(".player1Bullets").hasClass("blue") && $("#player2").hasClass("blue"))
+       {
+        console.log("blue color match")
+       return false;
+        }
+      else if ($(".player1Bullets").hasClass("red") && $("#player2").hasClass("red"))
+       {
+        console.log("red color match")
+       return false;
       }
-    }
+       else {
+        console.log("hit")
+         return true;
+      }
     console.log(collision(newBullet, player2));
   }
-  var damage = function(health){
-    health.value =- 1};
-    if (collision == true && player2.hasClass("blue") && $(".player1Bullets").css("background-color") == "blue") {
-      damage = false;
-    } else {
-      damage = true
-    };
 
-  }
-});
+
+  // var damage = function(health){
+  //   health.value =- 1};
+
+    // if (collision == true && player2.hasClass("blue") && $(".player1Bullets").css("background-color") == "(0, 0, 255)") {
+    //   damage = false;
+    // } else {
+    //   damage = true
+    };
+  });
   // $(document).keypress(function(key){??
   // $( newBullet ).remove();
   // if(collision(newBullet, player2) === true) {
@@ -128,7 +140,7 @@ $(document).keypress(function(key) {
 //player2's color change function
 $(document).keypress(function(key) {
   if (key.which === 110) {
-    player2.toggleClass('red');
+    player2.toggleClass('red blue');
       }
     });
 //player2's bullet animation
@@ -139,7 +151,7 @@ $(document).keypress(function(key) {
     if (player2.hasClass('red')) {
       bulletDiv = '<div class="player2Bullets red"' + '></div>';
     } else {
-      bulletDiv = '<div class="player2Bullets"' + '></div>';
+      bulletDiv = '<div class="player2Bullets blue"' + '></div>';
     }
 
     var newBullet = $(bulletDiv)
@@ -151,13 +163,13 @@ $(document).keypress(function(key) {
       clearInterval(checker);
     })
     var checker = setInterval(function(){
-      if (collision(newBullet, player1)) {
+      if (collision2(newBullet, player1)) {
         clearInterval(checker);
         }
-        console.log("collision?", collision(newBullet, player1))
+        console.log("collision2?", collision2(newBullet, player1))
       }, 200)
 
-  function collision(newBullet, enemyPlayer) {
+  function collision2(newBullet, enemyPlayer) {
     // var newBullet = $('<div class="player1Bullets"></div>')
       var x1 = newBullet.offset().left;
       var y1 = newBullet.offset().top;
@@ -171,14 +183,29 @@ $(document).keypress(function(key) {
       var w2 = enemyPlayer.outerWidth(true);
       var b2 = y2 + h2;
       var r2 = x2 + w2;
+      console.log ($(".player2Bullets").hasClass("red"))
+      console.log ($("#player1").hasClass("red"))
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
-       return false;
+        console.log("geometry")
+        return false;
+      }
+      else if ($(".player2Bullets").hasClass("blue") && $("#player1").hasClass("blue"))
+       {
 
-      } else {
+        console.log("blue color match")
+       return false;
+        }
+      else if ($(".player2Bullets").hasClass("red") && $("#player1").hasClass("red"))
+       {
+        console.log("red color match")
+       return false;
+      }
+       else {
+        console.log("hit")
          return true;
       }
     }
-    console.log(collision(newBullet, player1));
+    console.log(collision2(newBullet, player1));
   }
 });
 
