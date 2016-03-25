@@ -35,10 +35,21 @@ $(document).keypress(function(key) {
   }
 });
 //player1's color change function
+var player1Count = 0
+
 $(document).keypress(function(key) {
   if (key.which === 99) {
-    player1.toggleClass('red blue');
-    console.log("toggle color");
+    player1Count++;
+    console.log("Player 1 count " + player1Count);
+    //if odd, remove red and make blue.
+    if(player1Count % 2 != 0) {
+     player1.removeClass('red');
+     player1.addClass('blue');
+    }
+    else if(player1Count %2 == 0) {
+      player1.removeClass('blue');
+     player1.addClass('red');
+    }
   }
 });
 //player1's bullet animation
@@ -138,11 +149,22 @@ $(document).keypress(function(key) {
   }
 });
 //player2's color change function
+var player2Count = 0;
 $(document).keypress(function(key) {
   if (key.which === 110) {
-    player2.toggleClass('red blue');
-      }
-    });
+    player2Count++;
+    console.log("Player 2 count " + player2Count);
+    //if odd, remove red and make blue.
+    if(player2Count % 2 != 0) {
+     player2.removeClass('blue');
+     player2.addClass('red');
+    }
+    else if(player2Count %2 == 0) {
+      player2.removeClass('red');
+     player2.addClass('blue');
+    }
+  }
+});
 //player2's bullet animation
 $(document).keypress(function(key) {
   if (key.which === 109) {
