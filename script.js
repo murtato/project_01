@@ -4,7 +4,6 @@ $("button").click(function(event) {
 });
 
 // var winner;
-// var hitPoints;
 
 var player1 = $('#player1')
 player1.data('x', 0)
@@ -17,10 +16,6 @@ player2.data('x2', 0)
 player2.data('y2', 0)
 player2.data('w2', 40)
 player2.data('h2', 25)
-
-//player1 health bar
-// var health = document.getElementById("health")
-// health.value = health.value()
 
 //player1 moves up
 $(document).keypress(function(key) {
@@ -36,11 +31,9 @@ $(document).keypress(function(key) {
 });
 //player1's color change function
 var player1Count = 0
-
 $(document).keypress(function(key) {
   if (key.which === 99) {
     player1Count++;
-    console.log("Player 1 count " + player1Count);
     //if odd, remove red and make blue.
     if(player1Count % 2 != 0) {
      player1.removeClass('red');
@@ -53,18 +46,15 @@ $(document).keypress(function(key) {
   }
 });
 //player1's bullet animation
-//addclass, removeclass, toggleclass, hasclass
-//create div classes and manipulate their css properties for color change functions
 $(document).keypress(function(key){
   if (key.which === 120) {
     var bulletDiv;
-
+//bullets created here
     if (player1.hasClass('blue')) {
       bulletDiv = '<div class="player1Bullets blue"' + '></div>';
     } else {
       bulletDiv = '<div class="player1Bullets red"' + '></div>';
     }
-
     var newBullet = $(bulletDiv);
     $('.container').append(newBullet);
     var currentP1Position = player1.css("top");
@@ -79,7 +69,7 @@ $(document).keypress(function(key){
       }
     }
     , 200);
-
+//Collision detection here
     function collision(newBullet, enemyPlayer) {
       // var newBullet = $('<div class="player1Bullets"></div>')
       var x1 = newBullet.offset().left;
@@ -95,7 +85,6 @@ $(document).keypress(function(key){
       var b2 = y2 + h2;
       var r2 = x2 + w2;
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
-        console.log("geometry")
         return false;
         } else if ($(".player1Bullets").hasClass("blue") && $("#player2").hasClass("blue"))
        {
@@ -110,31 +99,40 @@ $(document).keypress(function(key){
        else {
         console.log("hit")
          return true;
+        }
       }
-    console.log(collision(newBullet, player2));
+
+function progressBarSim(pHB) {
+  var bar = document.getElementById('player1Health');
+  var status = document.getElementById('status');
+  // status.innerHTML = pHB+"%"
+  bar.value = pHB;
+  // pHB--;
+  var damage = setTimeout("progressBarSim("+pHB+")", 300);
+  if(pHB == 20){
+    // status.innerHTML = "20%";
+    bar.value = 20;
+    // clearTimeout(sim);
   }
+}
+var p1HealthBar = 20;
+progressBarSim(p1HealthBar);
 
 
-  // var damage = function(health){
-  //   health.value =- 1};
+//player1 health bar
+// var hitPoints;????
+// var health = document.getElementById("player1Health")
+// bar.value = bar.value()
 
-    // if (collision == true && player2.hasClass("blue") && $(".player1Bullets").css("background-color") == "(0, 0, 255)") {
-    //   damage = false;
-    // } else {
-    //   damage = true
-    };
+// if(collision(newBullet, player2) === true) {
+//   player2.hitPointBar = (0);
+//   if (p2HPBar < 1) {
+
+// var damage = function(health){
+//   health.value =- 1};
+
+    }
   });
-  // $(document).keypress(function(key){??
-  // $( newBullet ).remove();
-  // if(collision(newBullet, player2) === true) {
-  //   player2.hitPointBar = (-1);
-  //   if (p2HPBar < 0) {
-  //     return "player1 " + "wins!"
-  //   }
-  // }
-
-//   }
-// })
 
 //player2 moves up
 $(document).keypress(function(key) {
@@ -153,7 +151,6 @@ var player2Count = 0;
 $(document).keypress(function(key) {
   if (key.which === 110) {
     player2Count++;
-    console.log("Player 2 count " + player2Count);
     //if odd, remove red and make blue.
     if(player2Count % 2 != 0) {
      player2.removeClass('blue');
@@ -169,13 +166,12 @@ $(document).keypress(function(key) {
 $(document).keypress(function(key) {
   if (key.which === 109) {
     var bulletDiv;
-
+//bullets created here
     if (player2.hasClass('red')) {
       bulletDiv = '<div class="player2Bullets red"' + '></div>';
     } else {
       bulletDiv = '<div class="player2Bullets blue"' + '></div>';
     }
-
     var newBullet = $(bulletDiv)
     $('.container').append(newBullet)
     var currentP2Position = player2.css("top");
@@ -188,9 +184,8 @@ $(document).keypress(function(key) {
       if (collision2(newBullet, player1)) {
         clearInterval(checker);
         }
-        console.log("collision2?", collision2(newBullet, player1))
       }, 200)
-
+//Collision detection here
   function collision2(newBullet, enemyPlayer) {
     // var newBullet = $('<div class="player1Bullets"></div>')
       var x1 = newBullet.offset().left;
@@ -205,15 +200,11 @@ $(document).keypress(function(key) {
       var w2 = enemyPlayer.outerWidth(true);
       var b2 = y2 + h2;
       var r2 = x2 + w2;
-      console.log ($(".player2Bullets").hasClass("red"))
-      console.log ($("#player1").hasClass("red"))
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
-        console.log("geometry")
         return false;
       }
       else if ($(".player2Bullets").hasClass("blue") && $("#player1").hasClass("blue"))
        {
-
         console.log("blue color match")
        return false;
         }
@@ -227,7 +218,36 @@ $(document).keypress(function(key) {
          return true;
       }
     }
-    console.log(collision2(newBullet, player1));
+
+function progressBarSim(pHB) {
+  var bar = document.getElementById('player1Health');
+  var status = document.getElementById('status');
+  // status.innerHTML = pHB+"%"
+  bar.value = pHB;
+  // pHB--;
+  var damage = setTimeout("progressBarSim("+pHB+")", 300);
+  if(pHB == 20){
+    // status.innerHTML = "20%";
+    bar.value = 20;
+    // clearTimeout(sim);
+  }
+}
+var p1HealthBar = 20;
+progressBarSim(p1HealthBar);
+
+
+//player1 health bar
+// var hitPoints;????
+// var health = document.getElementById("player1Health")
+// bar.value = bar.value()
+
+// if(collision(newBullet, player2) === true) {
+//   player2.hitPointBar = (0);
+//   if (p2HPBar < 1) {
+
+// var damage = function(health){
+//   health.value =- 1};
+
   }
 });
 

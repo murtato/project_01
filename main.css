@@ -4,7 +4,15 @@ h1 {
   margin: auto;
   text-align: center;
   font-family: Arial-black;
-  background-color: gray;
+  color: #8FEB91;
+  background-color: #ffffcc;
+}
+
+h3 {
+ margin: auto;
+  text-align: center;
+  font-family: Arial-black;
+  color: #8FEB91;
 }
 
 .container {
@@ -17,17 +25,42 @@ h1 {
   background-color: #ffffcc;
 }
 
-#player1Health[value]{
-  -webkit-appearance: none;
-  appearance: none;
-  width: 125px;
+
+#player1Instructions {
+  text-align: center;
+  font-family: tahoma;
+  border: 15px solid #FADF66;
+  padding: 10px;
+  color: #E876E6;
+  background-color: #94FA16;
+  margin-left: 40px;
+  float: left;
 }
 
-#player2Health[value]{
-  -webkit-appearance: none;
-  appearance: none;
-  width: 125px;
+#player2Instructions {
+  text-align: center;
+  font-family: tahoma;
+  border: 15px solid #FADF66;
+  padding: 10px;
+  color: #E876E6;
+  background-color: #94FA16;
+  margin-right: 40px;
+  float: right;
 }
+
+
+#player1Health[value]{
+  float: left;
+  width: 125px;
+  height: 5px;
+}
+#player2Health[value]{
+  float: right;
+  width: 125px;
+  height: 5px;
+}
+
+
 
 #player1 {
   text-align: center;
@@ -40,11 +73,9 @@ h1 {
   width: 40px;
   background-color: red;
 }
-
 #player1.blue {
   background-color: blue;
 }
-
 .player1Bullets {
   position: absolute;
   color: black;
@@ -52,7 +83,6 @@ h1 {
   width: 15px;
   background-color: red;
 }
-
 .player1Bullets.blue {
   background-color: blue;
 }
@@ -67,11 +97,9 @@ h1 {
   width: 40px;
   background-color: blue;
 }
-
 #player2.red {
   background-color: red;
 }
-
 .player2Bullets {
   position: absolute;
   left: 450px;
@@ -80,11 +108,6 @@ h1 {
   width: 15px;
   background-color: blue;
 }
-
 .player2Bullets.red {
   background-color: red;
-}
-
-.h3 {
-  margin: auto;
 }
