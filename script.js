@@ -1,5 +1,8 @@
 
-// var winner;
+//health bar variables
+var player1Health;
+var player2Health;
+
 
 var player1 = $('#player1')
 player1.data('x', 0)
@@ -94,37 +97,24 @@ $(document).keypress(function(key){
        return false;
       }
        else {
-        console.log("hit");
-
          return true;
         }
       }
     function subtractHealth() {
       var bar = document.getElementById("player2Health").value;
-      console.log(bar);
-      console.log('hi');
       bar -= 1;
+      console.log("damage")
       document.getElementById("player2Health").value = bar;
-      console.log(bar);
+      if (bar.value < 1) {
+            function winChecker() {
+      if (bar.value() == 0){
+      } console.log ("PLAYER 1 WINS!!!");
+    } winChecker()
+      }
     }
+    // };
   }
-// var p1HealthBar = 20;
-// progressBarSim(p1HealthBar);
-
-
-//player1 health bar
-// var hitPoints;????
-// var health = document.getElementById("player1Health")
-// bar.value = bar.value()
-
-// if(collision(newBullet, player2) === true) {
-//   player2.hitPointBar = (0);
-//   if (p2HPBar < 1) {
-
-// var damage = function(health){
-//   health.value =- 1};
-
-    })
+})
 
 
 //player2 moves up
@@ -220,35 +210,7 @@ $(document).keypress(function(key) {
       document.getElementById("player1Health").value = bar;
       console.log(bar);
     }
-/*
-function progressBarSim(pHB) {
-  var bar = document.getElementById('player1Health');
-  // var status = document.getElementById('status');
-  // status.innerHTML = pHB+"%"
-  bar.value = pHB;
-  // pHB--;
-  // var damage = ("progressBarSim("+pHB+")", 300);
-  if(pHB == 20){
-    // status.innerHTML = "20%";
-    bar.value = 20;
-    // clearTimeout(sim);
-  }
-}*/
-
-var p1HealthBar = 20;
-
-//player1 health bar
-// var hitPoints;????
-// var health = document.getElementById("player1Health")
-// bar.value = bar.value()
-
-// if(collision(newBullet, player2) === true) {
-//   player2.hitPointBar = (0);
-//   if (p2HPBar < 1) {
-
-// var damage = function(health){
-//   health.value =- 1};
-
+var p1HealthBar = 10;
   }
 });
 
