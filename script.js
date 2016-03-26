@@ -65,6 +65,7 @@ $(document).keypress(function(key){
     var checker = setInterval(function() {
       if (collision(newBullet, player2)) {
         subtractHealth();
+        console.log("win")
         clearInterval(checker);
       }
     }
@@ -105,15 +106,31 @@ $(document).keypress(function(key){
       bar -= 1;
       console.log("damage")
       document.getElementById("player2Health").value = bar;
-      if (bar.value < 1) {
-            function winChecker() {
-      if (bar.value() == 0){
-      } console.log ("PLAYER 1 WINS!!!");
-    } winChecker()
-      }
     }
-    // };
+    //win checker
+    function winChecker() {
+      if (("player2Health").value < 1){
+        event.target.removeEventListener('key')
+      } console.log ("PLAYER 1 WINS!!!");
+    };
+
   }
+// var p1HealthBar = 20;
+// progressBarSim(p1HealthBar);
+
+
+//player1 health bar
+// var hitPoints;????
+// var health = document.getElementById("player1Health")
+// bar.value = bar.value()
+
+// if(collision(newBullet, player2) === true) {
+//   player2.hitPointBar = (0);
+//   if (p2HPBar < 1) {
+
+// var damage = function(health){
+//   health.value =- 1};
+
 })
 
 
@@ -210,7 +227,7 @@ $(document).keypress(function(key) {
       document.getElementById("player1Health").value = bar;
       console.log(bar);
     }
-var p1HealthBar = 10;
+var p1HealthBar = 20;
   }
 });
 
