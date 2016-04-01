@@ -3,7 +3,6 @@
 var player1Health;
 var player2Health;
 
-
 var player1 = $('#player1')
 player1.data('x', 0)
 player1.data('y', 0)
@@ -44,32 +43,33 @@ $(document).keypress(function(key) {
     }
   }
 });
-//player1's bullet animation
+//player1's shoot button
 $(document).keypress(function(key){
   if (key.which === 120) {
     var bulletDiv;
-//bullets created here
+//bullets created here, bullet animation included here
     if (player1.hasClass('blue')) {
       bulletDiv = '<div class="player1Bullets blue"' + '></div>';
     } else {
       bulletDiv = '<div class="player1Bullets red"' + '></div>';
     }
+    //player1 bullet animation
     var newBullet = $(bulletDiv);
     $('.container').append(newBullet);
     var currentP1Position = player1.css("top");
     newBullet.css("top", currentP1Position);
-    newBullet.animate({left: '485px'}, 1200, "linear", function(){
+    newBullet.animate({left: '485px'}, 1000, "linear", function(){
       $( newBullet ).remove();
       clearInterval(checker);
     });
+    //calling the collision and damage functions
     var checker = setInterval(function() {
       if (collision(newBullet, player2)) {
         subtractHealth();
-        console.log("win")
         clearInterval(checker);
       }
     }
-    , 200);
+    , 80);
 //Collision detection here
     function collision(newBullet, enemyPlayer) {
       // var newBullet = $('<div class="player1Bullets"></div>')
@@ -89,50 +89,44 @@ $(document).keypress(function(key){
         return false;
         } else if ($(".player1Bullets").hasClass("blue") && $("#player2").hasClass("blue"))
        {
-        console.log("blue color match")
        return false;
         }
       else if ($(".player1Bullets").hasClass("red") && $("#player2").hasClass("red"))
        {
-        console.log("red color match")
        return false;
       }
        else {
          return true;
         }
       }
+      //player health bar and subtraction by collision
     function subtractHealth() {
       var bar = document.getElementById("player2Health").value;
       bar -= 1;
-      console.log("damage")
       document.getElementById("player2Health").value = bar;
-    }
-    //win checker
-    function winChecker() {
-      if (("player2Health").value < 1){
-        event.target.removeEventListener('key')
+      console.log(bar)
+  // win checker
+      function winChecker() {
+      if (bar.value === 0){
       } console.log ("PLAYER 1 WINS!!!");
     };
 
+    }
   }
-// var p1HealthBar = 20;
+})
+
+/*// var p1HealthBar = 20;
 // progressBarSim(p1HealthBar);
-
-
 //player1 health bar
 // var hitPoints;????
 // var health = document.getElementById("player1Health")
 // bar.value = bar.value()
-
 // if(collision(newBullet, player2) === true) {
 //   player2.hitPointBar = (0);
 //   if (p2HPBar < 1) {
-
 // var damage = function(health){
-//   health.value =- 1};
-
-})
-
+//   health.value -= 1};*/
+// })
 
 //player2 moves up
 $(document).keypress(function(key) {
@@ -176,7 +170,7 @@ $(document).keypress(function(key) {
     $('.container').append(newBullet)
     var currentP2Position = player2.css("top");
     newBullet.css("top", currentP2Position)
-    newBullet.animate({left: '-3px'}, 1200, "linear", function(){
+    newBullet.animate({left: '-3px'}, 1000, "linear", function(){
       $( newBullet ).remove();
       clearInterval(checker);
     })
@@ -185,7 +179,7 @@ $(document).keypress(function(key) {
         clearInterval(checker);
         subtractHealth();
         }
-      }, 200)
+      }, 80)
 //Collision detection here
   function collision2(newBullet, enemyPlayer) {
     // var newBullet = $('<div class="player1Bullets"></div>')
@@ -206,28 +200,22 @@ $(document).keypress(function(key) {
       }
       else if ($(".player2Bullets").hasClass("blue") && $("#player1").hasClass("blue"))
        {
-        console.log("blue color match")
        return false;
         }
       else if ($(".player2Bullets").hasClass("red") && $("#player1").hasClass("red"))
        {
-        console.log("red color match")
        return false;
       }
        else {
-        console.log("hit")
          return true;
       }
     }
     function subtractHealth() {
       var bar = document.getElementById("player1Health").value;
-      console.log(bar);
-      console.log('hi');
       bar -= 1;
       document.getElementById("player1Health").value = bar;
       console.log(bar);
     }
-var p1HealthBar = 20;
   }
 });
 
