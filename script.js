@@ -107,7 +107,7 @@ $(document).keypress(function(key){
       console.log(bar)
   // win checker
       function winChecker() {
-      if (bar.value === 0){
+      if (bar.value === -1){
       } console.log ("PLAYER 1 WINS!!!");
     };
 

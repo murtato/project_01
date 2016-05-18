@@ -8,6 +8,17 @@
 </head>
 
 <body>
+    <div class="container">
+      <h1>BINARY BATTLER</h1>
+      <div class="playerShips">
+        <div class="players" id="player1">O</div>
+            <progress id="player1Health" max="10" value="10"></progress>
+        <div class="players" id="player2">|</div>
+
+            <progress id="player2Health" max="10" value="10"></progress>
+      </div>
+      <h3><br><br>MATCH BULLET COLOR TO DEFEND!!!</h3>
+    </div><br>
   <div class="manual">
     <div id="player1Instructions">
         PLAYER 1<br>
@@ -24,18 +35,7 @@
         M  =  SHOOT
     </div>
   </div>
-    <div class="container">
-      <h1>BINARY BATTLER</h1>
-      <div class="playerShips">
-        <div class="players" id="player1">O</div>
-            <progress id="player1Health" max="10" value="10"></progress>
-        <div class="players" id="player2">O</div>
-
-            <progress id="player2Health" max="10" value="10"></progress>
-      </div>
-      <h3><br><br>MATCH BULLET COLOR TO DEFEND!!!</h3>
-    </div>
-    <button id="reset">Reset Game</button>
+  <button id="reset">Reset Game</button>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>

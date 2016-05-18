@@ -27,6 +27,7 @@ h3 {
 
 
 #player1Instructions {
+  width: 120px;
   text-align: center;
   font-family: tahoma;
   border: 15px solid #FADF66;
@@ -34,10 +35,10 @@ h3 {
   color: #E876E6;
   background-color: #94FA16;
   margin-left: 40px;
-  float: left;
 }
 
 #player2Instructions {
+  width: 120px;
   text-align: center;
   font-family: tahoma;
   border: 15px solid #FADF66;
@@ -45,7 +46,6 @@ h3 {
   color: #E876E6;
   background-color: #94FA16;
   margin-right: 40px;
-  float: right;
 }
 
 
