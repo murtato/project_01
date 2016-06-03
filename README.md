@@ -1,12 +1,3 @@
-### Technical Requirements
-
-Your app must:
-- **Deploy your game online**, where the rest of the world can access it
-
----
-
-### Necessary Deliverables
-
 **In order of importance:**
 
 1. Minimum Viable Product:
@@ -23,7 +14,7 @@ Your app must:
         - The end game window should remove all functionality from the players.
     - Icebox:
         - If everything worked perfectly, I would have a button that would start the game in a "showdown mode", which puts the players on a stage that is 25% shorter in height than the normal game mode.
-        - Additional things include sound effects, gif explosions, and image sprites taking the place of the square avatars.
+        - Additional things include sound effects, gif explosions, and image sprites taking the place of the rectangular avatars.
 
 README:
 1. SPLOOSH BINARY BATTLER
@@ -32,18 +23,6 @@ README:
 3. The game follows a standard arena "shoot em up (shmup)" style. There is a small boxed area where both players navigate up and down, shoot, and defend.
 4. Click the link?
 5. Everything mentioned in the above Icebox and Backlog.
-
-
-- **A ``readme.md`` file** with:
-  1. a description of your game (***[Use Your Game's Name]***)
-  2. lists and explanations of the technologies used (**Technologies**),
-  3. the design approach taken (**Design**), 
-  4. installation instructions (**Get Started**), and 
-  5. unsolved problems and/or planned features (**Next Steps**).
-- The code for **a working game, built by you**, hosted on GitHub,
-  with frequent commits dating back to the very beginning of the project.
-- The game, **hosted on the internet**, with a link to it provided in the URL 
-  section of your Github repo.
 
 ---
 

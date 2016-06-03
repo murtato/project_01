@@ -27,33 +27,19 @@ h3 {
 main.inline-block-center {
   display: inline-block;
   margin: auto;
-  position: absolute;
+  position: relative;
   text-align: center;
 }
 
-.player1Instructions {
-  display: inline-block;
+.player1Instructions, .player2Instructions {
   width: 120px;
   padding: 10px;
+  float: left;
   text-align: center;
   font-family: tahoma;
   background-color: #94FA16;
   border: 15px solid #FADF66;
   color: #E876E6;
-  position: relative;
-  margin: 40px;
-}
-
-.player2Instructions {
-  display: inline-block;
-  width: 120px;
-  padding: 10px;
-  text-align: center;
-  font-family: tahoma;
-  background-color: #94FA16;
-  border: 15px solid #FADF66;
-  color: #E876E6;
-  position: relative;
   margin: 40px;
 }
 
