@@ -1,5 +1,4 @@
 
-
 h1 {
   margin: auto;
   text-align: center;
@@ -31,25 +30,23 @@ main.inline-block-center {
   text-align: center;
 }
 
+#player1Health[value], #player2Health[value]{
+  float: left;
+  width: 132px;
+  color: #8FEB91;
+  margin: 10px 53px 10px 59px;
+}
+
 .player1Instructions, .player2Instructions {
-  width: 120px;
+  width: 160px;
   padding: 10px;
   float: left;
   text-align: center;
   font-family: tahoma;
   background-color: #94FA16;
-  border: 15px solid #FADF66;
+  border: 11px solid #FADF66;
   color: #E876E6;
-  margin: 40px;
-}
-
-#player1Health[value]{
-  float: left;
-  width: 125px;
-}
-#player2Health[value]{
-  float: right;
-  width: 125px;
+  margin: 25px 23px 0px 23px;
 }
 
 #player1 {
