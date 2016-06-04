@@ -26,6 +26,9 @@ README:
 
 ---
 
+Link to github pages project:
+http://murtato.github.io/project_01
+
 ### Suggestions
 
 
