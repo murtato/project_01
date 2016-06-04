@@ -69,7 +69,7 @@ $(document).keypress(function(key){
         clearInterval(checker);
       }
     }
-    , 80);
+    , 120);
 //Collision detection here
     function collision(newBullet, enemyPlayer) {
       // var newBullet = $('<div class="player1Bullets"></div>')
@@ -179,7 +179,7 @@ $(document).keypress(function(key) {
         clearInterval(checker);
         subtractHealth();
         }
-      }, 80)
+      }, 120)
 //Collision detection here
   function collision2(newBullet, enemyPlayer) {
     // var newBullet = $('<div class="player1Bullets"></div>')
