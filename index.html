@@ -1,42 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-  <meta charset="UTF-8">
-  <title>SPLOOSH</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
-</head>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Project 01 : Binary Battler">
 
-<body>
-  <div class="manual">
-    <div id="player1Instructions">
-        PLAYER 1<br>
-        Q  =  UP<br>
-        A  =  DOWN<br>
-        C  =  CHANGE COLOR<br>
-        X  =  SHOOT
-    </div>
-    <div id="player2Instructions">
-        PLAYER 2:<br>
-        P  =  UP<br>
-        L  =  DOWN<br>
-        N  =  CHANGE COLOR<br>
-        M  =  SHOOT
-    </div>
-  </div>
-    <div class="container">
-      <h1>BINARY BATTLER</h1>
-      <div class="playerShips">
-        <div class="players" id="player1">O</div>
-            <progress id="player1Health" max="10" value="10"></progress>
-        <div class="players" id="player2">O</div>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-            <progress id="player2Health" max="10" value="10"></progress>
-      </div>
-      <h3><br><br>MATCH BULLET COLOR TO DEFEND!!!</h3>
+    <title>Project 01</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/murtato/project_01">View on GitHub</a>
+
+          <h1 id="project_title">Project 01</h1>
+          <h2 id="project_tagline">Binary Battler</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/murtato/project_01/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/murtato/project_01/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
-    <button id="reset">Reset Game</button>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="script.js"></script>
-</body>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><strong>README:</strong></p>
+
+<h2>
+<a id="1-sploosh-binary-battler" class="anchor" href="#1-sploosh-binary-battler" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. SPLOOSH BINARY BATTLER</h2>
+
+<p>A game where the player can change between red and blue, and is put in an arena to fight an enemy! Players shoot the same color bullets as their own colors, and are not harmed by bullets that are the same color. They must change to the color opposite the enemy's in order to deal damage, but are likewise vulnerable to damage this way. For example, players that are blue cannot be harmed by blue shots, but can be harmed by red shots, and should change color to red to avoid damage.
+2. Technologies used: Javascript, JQuery, HTML, CSS
+3. The game follows a standard arena "shoot em up (shmup)" style. There is a small boxed area where both players navigate up and down, shoot, and defend.
+4. Download the .zip and open all the files in your text compiler. Open the index file in your browser and it should work. Alternatively, you can click on the github pages link to play this game.
+5. Additional notes moving forward: Everything mentioned in the above Icebox and Backlog.</p>
+
+<p><strong>In order of importance:</strong></p>
+
+<p><em>1. Minimum Viable Product:</em></p>
+
+<ul>
+<li>The parts of the game completed so far are the following according to the User Stories:</li>
+<li>Users will see a 200px x 500px rectangle on the screen in which they can move their avatars.</li>
+<li>Up and Down keys are assigned correctly for each player.</li>
+<li>The "shoot" keys launch "bullets" corresponding to the color of the player at the time of keypress.</li>
+<li>The color change key changes the player's and player's bullets' colors in full correspondence.</li>
+<li>The players cannot move past the top and bottom borders of the stage.</li>
+<li>As a user, "bullets" that match the same color as the player they hit do no damage, but those of the opposing color do 1 hit point of damage each.</li>
+<li>A life bar representing the number of hit points is displayed above the player avatars and below the game's title, appended to the top of the stage.</li>
+</ul>
+
+<p><em>2. Features to be added:</em></p>
+
+<ul>
+<li>Need to refactor code so that bullet animation and health bar are separate from the player divs. This is currently proving to be a nightmare.</li>
+<li>An alert window should pop up when any player's health bar reaches "0". Still need to set aside some time to hammer one out.</li>
+<li>The end game window should remove all functionality from the players.</li>
+<li>Icebox:</li>
+<li>If everything worked perfectly, I would have a button that would start the game in a "showdown mode", which puts the players on a stage that is 25% shorter in height than the normal game mode.</li>
+<li>Additional things include sound effects, gif explosions, and image sprites taking the place of the rectangular avatars.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Project 01 maintained by <a href="https://github.com/murtato">murtato</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
 </html>
