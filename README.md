@@ -27,6 +27,7 @@ README:
 ---
 
 Link to github pages project:
+(currently fixing a bug in the project)
 <!-- http://murtato.github.io/project_01 -->
 
 ### Suggestions
